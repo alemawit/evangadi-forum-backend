@@ -13,24 +13,6 @@ app.use(express.json());
 //db connection
 const dbConnection=require("./db/dbconfig")
 
-//user routes middleware file
-const userRoutes=require("./routes/userRoute")
-//user routes middleware 
-app.use("/api/users",userRoutes);
-
-//authentication middleware file
-const authMiddleware=require("./middleware/authMiddleware")
-// Questions routes middleware
-const questionRoutes = require("./routes/questionRoute");
-// app.use("/api", authMiddleware, questionRoutes);
-// questions routes middleware
-app.use("/api/questions", authMiddleware, questionRoutes);
- // Answers routes middleware
-const answerRoutes = require("./routes/answerRoute");
-app.use("/api/answers",authMiddleware, answerRoutes);
-// Answers routes middleware
-// const answerRoutes = require("./routes/answerRoute");
-// app.use("/api/answers",authMiddleware, answerRoutes);
 
 async function start(params) {
     try {
